@@ -1,12 +1,14 @@
+const path = require('path');
+
 module.exports = {
   entry: './app/main.js',
   output: {
-    path: './app',
+    path: path.resolve(__dirname, 'app'),
     filename: 'bundle.js'
   },
   devServer: {
     inline: true,
-    contentBase: './app',
+    contentBase: path.resolve(__dirname, 'app'),
     port: 8100
   },
   module: {
@@ -14,7 +16,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel'
+        loader: 'babel-loader'
       }
     ]
   }
